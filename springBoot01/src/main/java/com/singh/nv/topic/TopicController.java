@@ -28,4 +28,16 @@ public class TopicController {
     {
         topicService.addTopic(topic);
     }
+
+    @RequestMapping(value = "/topics/{id}", method = RequestMethod.PUT)
+    public void addTopic(@RequestBody topic topic, @PathVariable String id)
+    {
+        topicService.updateTopic(topic,id);
+    }
+
+    @RequestMapping(value = "/topics/{id}", method = RequestMethod.DELETE)
+    public void addTopic( @PathVariable String id)
+    {
+        topicService.deleteTopic(id);
+    }
 }
