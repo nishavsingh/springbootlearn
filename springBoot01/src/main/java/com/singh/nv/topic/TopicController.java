@@ -1,5 +1,6 @@
 package com.singh.nv.topic;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -9,12 +10,18 @@ import java.util.List;
 
 @RestController
 public class TopicController {
+    @Autowired
+    private TopicService topicService;
     @RequestMapping("/topics")
     public List<topic> getAllTopics()
     {
+        return topicService.getAllTopics();
+    }
 
-        return Arrays.asList( new topic("1","nisha1","springBoot1"),
-                new topic("2","nisha2","springBoot2"),
-                new topic("3","nisha3","springBoot3"));
+    @RequestMapping("/topics1")
+    public topic getAllTopics1()
+    {
+
+        return ( new topic("1","nisha1","springBoot1"));
     }
 }
